@@ -6,7 +6,7 @@ win =pygame.display.set_mode((500,500))
 pygame.display.set_caption("First game")
 isJump = False
 JumpCount = 10
-x = 50
+x = 60
 y = 400
 width = 50
 height = 60
