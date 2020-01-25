@@ -1,0 +1,100 @@
+import pygame
+import random
+import time
+pygame.init()
+win =pygame.display.set_mode((500,500))
+pygame.display.set_caption("First game")
+isJump = False
+JumpCount = 10
+x = 50
+y = 400
+width = 50
+height = 60
+vel = 5
+
+run = True
+while run:
+    pygame.time.delay(100)
+    for event in pygame.event.get():
+        if event.type ==pygame.QUIT:
+            run = False
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_a] and x > vel:
+        x -= vel
+        
+    if keys[pygame.K_d] and x < 500 - width - vel:
+        x += vel
+        
+    if not(isJump):
+        if keys[pygame.K_w] and y > vel:
+            y -= vel
+            
+        if keys[pygame.K_s] and y < 500 - height - vel:
+            y += vel
+            
+        if keys[pygame.K_SPACE]:
+            isJump = True
+    else:
+        if JumpCount >= -10:
+            y -= (JumpCount * abs(JumpCount)) * 0.5
+            JumpCount -= 1
+        else:
+            isJump = False
+            jumpCount = 10
+       
+    win.fill((0, 0, 0))
+    pygame.draw.rect(win, (255, 0, 0), (x, y, width, height))
+    pygame.display.update()
+
+
+pygame.quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
